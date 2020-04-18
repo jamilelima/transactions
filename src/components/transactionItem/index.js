@@ -15,6 +15,7 @@ export default function TransactionItem({data}) {
       <Icon
         name="arrow-up-right"
         color={data.isRecive ? colors.green : colors.green}
+        size={24}
       />
 
       <View>

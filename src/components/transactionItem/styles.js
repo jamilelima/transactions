@@ -16,6 +16,7 @@ export const Description = styled.Text`
   font-size: 16px;
   font-weight: bold;
   color: ${colors.white};
+  font-family: 'Nunito-Regular';
 `;
 
 export const TransactionImage = styled.Image`
@@ -28,10 +29,12 @@ export const TransactionValue = styled.Text`
   font-size: 16px;
   font-weight: bold;
   color: ${colors.red};
+  font-family: 'Nunito-Regular';
 `;
 
 export const TransactionDate = styled.Text`
   font-size: 12px;
   text-align: center;
   color: ${colors.cool_grey};
+  font-family: 'Nunito-Regular';
 `;
