@@ -12,7 +12,6 @@ import {
 import {Alert} from 'react-native';
 import {Picker} from '@react-native-community/picker';
 import colors from '../../utils/colors';
-
 export default function CreateTransaction() {
   const {register, setValue, handleSubmit, errors} = useForm();
 
@@ -35,19 +34,24 @@ export default function CreateTransaction() {
           ref={register({name: 'transactionValue'}, {required: true})}
           onChangeText={(text) => setValue('transactionValue', text, true)}
         />
-        {errors.transactionValue && <ErrorText>This is required.</ErrorText>}
+        {errors.transactionValue && (
+          <ErrorText>Por favor, preencha este campo.</ErrorText>
+        )}
       </InputContainer>
 
       <InputContainer>
         <Title>Descrição</Title>
         <Input
-          ref={register({name: 'transactionDescription'}, {required: true})}
+          ref={register(
+            {name: 'transactionDescription'},
+            {required: true, maxLength: 20},
+          )}
           onChangeText={(text) =>
             setValue('transactionDescription', text, true)
           }
         />
         {errors.transactionDescription && (
-          <ErrorText>This is required.</ErrorText>
+          <ErrorText>Por favor, preencha este campo.</ErrorText>
         )}
       </InputContainer>
 
@@ -56,12 +60,15 @@ export default function CreateTransaction() {
         <Picker
           ref={register({name: 'transactionType'}, {required: true})}
           selectedValue={values.selectedOption}
-          style={{height: 50, backgroundColor: colors.white}}
+          placeholderIconColor={colors.white}
+          style={{color: colors.white}}
           onValueChange={handleSelectChange}>
           <Picker.Item label="Entrada" value="recieve" />
           <Picker.Item label="Saída" value="outcome" />
         </Picker>
-        {errors.transactionType && <ErrorText>This is required.</ErrorText>}
+        {errors.transactionType && (
+          <ErrorText>Por favor, preencha este campo.</ErrorText>
+        )}
       </InputContainer>
 
       <SubmitButton onPress={handleSubmit(onSubmit)}>
