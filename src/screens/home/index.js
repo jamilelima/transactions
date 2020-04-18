@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, FlatList} from 'react-native';
+import React, {useState, useEffect, Fragment} from 'react';
+import {FlatList} from 'react-native';
 import TransactionItem from '../../components/transactionItem';
+import Header from '../../components/header';
+import {Container, FabButton, FabIcon} from './styles';
 import colors from '../../utils/colors';
 
-export default function Home() {
+export default function Home({navigation}) {
   const [error, setError] = useState('');
   const [empty, setEmpty] = useState(false);
 
@@ -92,12 +94,19 @@ export default function Home() {
   ];
 
   return (
-    <View backgroundColor={colors.primary}>
-      <FlatList
-        data={data}
-        renderItem={({item}) => <TransactionItem data={item} />}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+    <Fragment>
+      <Container backgroundColor={colors.primary}>
+        <Header amoutValue="20000" />
+        <FlatList
+          data={data}
+          renderItem={({item}) => <TransactionItem data={item} />}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={{paddingBottom: 50}}
+        />
+      </Container>
+      <FabButton onPress={() => navigation.navigate('CreateTransaction')}>
+        <FabIcon>+</FabIcon>
+      </FabButton>
+    </Fragment>
   );
 }
