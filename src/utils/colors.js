@@ -5,6 +5,7 @@ const colors = {
   cool_grey: '#90949c',
   prince_ton_orange: '#f99500',
   white: '#FFF',
+  white_ish: '#FAFAFA',
   red: '#ff0000',
   manatee: '#979797',
   onyx: '#101010',
