@@ -95,6 +95,7 @@ export default function CreateTransaction({navigation}) {
           placeholderIconColor={colors.white}
           style={{color: colors.white}}
           onValueChange={handleSelectChange}>
+          <Picker.Item label="Selecione um tipo..." value="" />
           <Picker.Item label="Entrada" value="credit" />
           <Picker.Item label="Saída" value="debit" />
         </Picker>
