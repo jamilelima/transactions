@@ -36,6 +36,6 @@ export const YourBalance = styled.Text`
 export const TransactionValue = styled.Text`
   font-size: 22px;
   font-weight: bold;
-  color: ${colors.accent};
+  color: ${colors.white_ish};
   font-family: 'Nunito-Regular';
 `;
