@@ -1,112 +1,75 @@
-import React, {useState, useEffect, Fragment} from 'react';
+import React, {Fragment} from 'react';
 import {FlatList} from 'react-native';
 import TransactionItem from '../../components/transactionItem';
 import Header from '../../components/header';
 import {Container, FabButton, FabIcon} from './styles';
 import colors from '../../utils/colors';
+import getRealm from '../../services/realm';
+import EmptyList from '../../components/emptyList';
 
-export default function Home({navigation}) {
-  const [error, setError] = useState('');
-  const [empty, setEmpty] = useState(false);
+export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      transactions: {},
+      newBalance: 0,
+      loading: false,
+    };
+  }
 
-  useEffect(() => {
-    // set transactions here
-  }, []);
+  componentDidMount() {
+    this.loadTransactions();
+  }
 
-  const data = [
-    {
-      id: 0,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: false,
-      value: '2.000,00',
-    },
-    {
-      id: 1,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-    {
-      id: 2,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-    {
-      id: 3,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: false,
-      value: '2.000,00',
-    },
-    {
-      id: 4,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-    {
-      id: 5,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-    {
-      id: 6,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-    {
-      id: 7,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-    {
-      id: 8,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-    {
-      id: 9,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-    {
-      id: 10,
-      description: 'Shopping',
-      date: Date.now(),
-      isRecive: true,
-      value: '2.000,00',
-    },
-  ];
+  reloadData = () => {
+    this.loadTransactions();
+  };
 
-  return (
-    <Fragment>
-      <Container backgroundColor={colors.primary}>
-        <Header amoutValue="20000" />
-        <FlatList
-          data={data}
-          renderItem={({item}) => <TransactionItem data={item} />}
-          keyExtractor={(item) => item.id}
-          contentContainerStyle={{paddingBottom: 50}}
-        />
-      </Container>
-      <FabButton onPress={() => navigation.navigate('CreateTransaction')}>
-        <FabIcon>+</FabIcon>
-      </FabButton>
-    </Fragment>
-  );
+  async loadTransactions() {
+    const realm = await getRealm();
+    const data = realm.objects('Transactions');
+    this.setState({
+      transactions: data,
+    });
+    realm.addListener('change', () => {
+      this.reloadData();
+    });
+    this.calculateBalance(data);
+  }
+
+  calculateBalance(transactions) {
+    let total = 0;
+    for (let index = 0; index < transactions.length; index++) {
+      if (transactions[index].type === 'credit') {
+        total += transactions[index].value;
+      } else if (transactions[index].type === 'debit') {
+        total -= transactions[index].value;
+      }
+    }
+    this.setState({newBalance: total});
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <Container backgroundColor={colors.primary}>
+          <Header amountValue={this.state.newBalance} />
+          {!this.state.transactions.length ? (
+            <EmptyList />
+          ) : (
+            <FlatList
+              data={this.state.transactions}
+              renderItem={({item}) => <TransactionItem data={item} />}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{paddingBottom: 50}}
+            />
+          )}
+        </Container>
+        <FabButton
+          onPress={() => this.props.navigation.navigate('CreateTransaction')}>
+          <FabIcon>+</FabIcon>
+        </FabButton>
+      </Fragment>
+    );
+  }
 }
