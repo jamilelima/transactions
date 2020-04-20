@@ -13,28 +13,22 @@ export const Container = styled.View`
 `;
 
 export const Description = styled.Text`
+  font-family: 'Nunito-Regular';
   font-size: 16px;
   font-weight: bold;
   color: ${colors.white};
-  font-family: 'Nunito-Regular';
-`;
-
-export const TransactionImage = styled.Image`
-  width: 200;
-  height: 200;
-  border-radius: 100;
+  text-align: center;
 `;
 
 export const TransactionValue = styled.Text`
+  font-family: 'Nunito-Regular';
   font-size: 16px;
   font-weight: bold;
-  color: ${colors.red};
-  font-family: 'Nunito-Regular';
 `;
 
 export const TransactionDate = styled.Text`
+  font-family: 'Nunito-Regular';
   font-size: 12px;
   text-align: center;
   color: ${colors.cool_grey};
-  font-family: 'Nunito-Regular';
 `;
