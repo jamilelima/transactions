@@ -5,7 +5,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from './src/screens/home/index.js';
 import CreateTransaction from './src/screens/createTransaction/index.js';
-import colors from './src/utils/colors.js';
 
 const Stack = createStackNavigator();
 
