@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Rendering should match to snapshot 1`] = `
+<Styled(View)>
+  <View>
+    <Styled(Text)>
+      Segunda-feira
+    </Styled(Text)>
+    <Styled(Text)>
+      20/04/2020
+    </Styled(Text)>
+  </View>
+  <View>
+    <Styled(Text)>
+      Seu saldo
+    </Styled(Text)>
+    <Styled(Text)>
+      R$ 
+      200.00
+    </Styled(Text)>
+  </View>
+</Styled(View)>
+`;
