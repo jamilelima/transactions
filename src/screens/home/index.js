@@ -27,7 +27,7 @@ export default class Home extends React.Component {
 
   async loadTransactions() {
     const realm = await getRealm();
-    const data = realm.objects('Transactions');
+    const data = realm.objects('Transactions').sorted('id', true);
     this.setState({
       transactions: data,
     });
