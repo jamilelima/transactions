@@ -18,6 +18,21 @@ export default function TransactionItem({data}) {
       return <Icon name="arrow-down-right" color={colors.orange} size={24} />;
     }
   };
+  const _setupValueStyle = () => {
+    if (data.type === 'credit') {
+      return (
+        <TransactionValue style={{color: colors.green}}>
+          R$ {convertForReal(data.value)}
+        </TransactionValue>
+      );
+    } else {
+      return (
+        <TransactionValue style={{color: colors.orange}}>
+          R$ {convertForReal(data.value)}
+        </TransactionValue>
+      );
+    }
+  };
 
   return (
     <Container>
@@ -26,7 +41,7 @@ export default function TransactionItem({data}) {
         <Description>{data.description}</Description>
         <TransactionDate>{data.date}</TransactionDate>
       </View>
-      <TransactionValue> +R$ {convertForReal(data.value)}</TransactionValue>
+      {_setupValueStyle()}
     </Container>
   );
 }
