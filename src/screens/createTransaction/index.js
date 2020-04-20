@@ -8,6 +8,7 @@ import {
   SubmitButton,
   ButtonText,
   ErrorText,
+  FormInfo,
 } from './styles';
 import {Picker} from '@react-native-community/picker';
 import getRealm from '../../services/realm';
@@ -59,6 +60,9 @@ export default function CreateTransaction({navigation}) {
 
   return (
     <Container>
+      <FormInfo>
+        Digite as informações abaixo para criar sua transação.
+      </FormInfo>
       <InputContainer>
         <Title>Valor</Title>
         <Input
@@ -88,7 +92,7 @@ export default function CreateTransaction({navigation}) {
       </InputContainer>
 
       <InputContainer>
-        <Title>Tipo</Title>
+        <Title>Tipo de transação</Title>
         <Picker
           ref={register({name: 'transactionType'}, {required: true})}
           selectedValue={values.selectedOption}

@@ -2,8 +2,17 @@ import styled from 'styled-components/native';
 import colors from '../../utils/colors';
 export const Container = styled.View`
   flex: 1;
-  padding-top: 50px;
-  background-color: ${colors.davy_gre};
+  justify-content: space-evenly;
+  background-color: ${colors.primary};
+`;
+
+export const FormInfo = styled.Text`
+  font-family: 'Nunito-Regular';
+  font-size: 20px;
+  text-align: center;
+  margin: 10px;
+  color: ${colors.white_ish};
+  font-weight: bold;
 `;
 
 export const Title = styled.Text`
