@@ -21,8 +21,8 @@ export default class Home extends React.Component {
     this.loadTransactions();
   }
 
-  reloadData = () => {
-    this.loadTransactions();
+  reloadData = (data) => {
+    this.calculateBalance(data);
   };
 
   async loadTransactions() {
@@ -32,7 +32,7 @@ export default class Home extends React.Component {
       transactions: data,
     });
     realm.addListener('change', () => {
-      this.reloadData();
+      this.reloadData(data);
     });
     this.calculateBalance(data);
   }

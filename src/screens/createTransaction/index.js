@@ -14,17 +14,21 @@ import {Picker} from '@react-native-community/picker';
 import getRealm from '../../services/realm';
 import colors from '../../utils/colors';
 import {format} from 'date-fns';
+import Loading from '../../components/loading';
 
 export default function CreateTransaction({navigation}) {
   const {register, setValue, handleSubmit, errors} = useForm();
 
   const onSubmit = (data) => {
+    setLoading(true);
     handleAddTransaction(data);
   };
 
   const [values, setSelect] = useState({
     selectedOption: '',
   });
+
+  const [loading, setLoading] = useState(false);
 
   async function saveTransaction(transaction) {
     const data = {
@@ -46,11 +50,12 @@ export default function CreateTransaction({navigation}) {
   async function handleAddTransaction(transaction) {
     try {
       await saveTransaction(transaction);
-      // set loading here
     } catch (error) {
       console.log(error);
     }
-    navigation.navigate('Home');
+    setTimeout(() => {
+      navigation.navigate('Home');
+    }, 1000);
   }
 
   const handleSelectChange = (selectedOption) => {
@@ -60,57 +65,63 @@ export default function CreateTransaction({navigation}) {
 
   return (
     <Container>
-      <FormInfo>
-        Digite as informações abaixo para criar sua transação.
-      </FormInfo>
-      <InputContainer>
-        <Title>Valor</Title>
-        <Input
-          ref={register({name: 'transactionValue'}, {required: true})}
-          onChangeText={(text) => setValue('transactionValue', text, true)}
-          keyboardType="numeric"
-        />
-        {errors.transactionValue && (
-          <ErrorText>Por favor, preencha este campo.</ErrorText>
-        )}
-      </InputContainer>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <FormInfo>
+            Digite as informações abaixo para criar sua transação.
+          </FormInfo>
+          <InputContainer>
+            <Title>Valor</Title>
+            <Input
+              ref={register({name: 'transactionValue'}, {required: true})}
+              onChangeText={(text) => setValue('transactionValue', text, true)}
+              keyboardType="numeric"
+            />
+            {errors.transactionValue && (
+              <ErrorText>Por favor, preencha este campo.</ErrorText>
+            )}
+          </InputContainer>
 
-      <InputContainer>
-        <Title>Descrição</Title>
-        <Input
-          ref={register(
-            {name: 'transactionDescription'},
-            {required: true, maxLength: 20},
-          )}
-          onChangeText={(text) =>
-            setValue('transactionDescription', text, true)
-          }
-        />
-        {errors.transactionDescription && (
-          <ErrorText>Por favor, preencha este campo.</ErrorText>
-        )}
-      </InputContainer>
+          <InputContainer>
+            <Title>Descrição</Title>
+            <Input
+              ref={register(
+                {name: 'transactionDescription'},
+                {required: true, maxLength: 20},
+              )}
+              onChangeText={(text) =>
+                setValue('transactionDescription', text, true)
+              }
+            />
+            {errors.transactionDescription && (
+              <ErrorText>Por favor, preencha este campo.</ErrorText>
+            )}
+          </InputContainer>
 
-      <InputContainer>
-        <Title>Tipo de transação</Title>
-        <Picker
-          ref={register({name: 'transactionType'}, {required: true})}
-          selectedValue={values.selectedOption}
-          placeholderIconColor={colors.white}
-          style={{color: colors.white}}
-          onValueChange={handleSelectChange}>
-          <Picker.Item label="Selecione um tipo..." value="" />
-          <Picker.Item label="Entrada" value="credit" />
-          <Picker.Item label="Saída" value="debit" />
-        </Picker>
-        {errors.transactionType && (
-          <ErrorText>Por favor, preencha este campo.</ErrorText>
-        )}
-      </InputContainer>
+          <InputContainer>
+            <Title>Tipo de transação</Title>
+            <Picker
+              ref={register({name: 'transactionType'}, {required: true})}
+              selectedValue={values.selectedOption}
+              placeholderIconColor={colors.white}
+              style={{color: colors.white}}
+              onValueChange={handleSelectChange}>
+              <Picker.Item label="Selecione um tipo..." value="" />
+              <Picker.Item label="Entrada" value="credit" />
+              <Picker.Item label="Saída" value="debit" />
+            </Picker>
+            {errors.transactionType && (
+              <ErrorText>Por favor, preencha este campo.</ErrorText>
+            )}
+          </InputContainer>
 
-      <SubmitButton onPress={handleSubmit(onSubmit)}>
-        <ButtonText>Salvar</ButtonText>
-      </SubmitButton>
+          <SubmitButton onPress={handleSubmit(onSubmit)}>
+            <ButtonText>Salvar</ButtonText>
+          </SubmitButton>
+        </>
+      )}
     </Container>
   );
 }
