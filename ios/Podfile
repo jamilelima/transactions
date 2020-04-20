@@ -81,6 +81,8 @@ target 'Transactions' do
 
   pod 'RealmJS', :path => '../node_modules/realm'
 
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'TransactionsTests' do
     inherit! :complete
     # Pods for testing
