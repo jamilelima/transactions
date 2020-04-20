@@ -23,7 +23,7 @@ export default function Header({amountValue}) {
       <View>
         <YourBalance>Seu saldo</YourBalance>
         <TransactionValue>
-          R$ {amountValue ? convertForReal(amountValue) : 0.0}
+          R$ {amountValue ? convertForReal(amountValue) : 0}
         </TransactionValue>
       </View>
     </Container>
