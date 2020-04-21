@@ -2,7 +2,6 @@ import React from 'react';
 import EmptyList from '../index';
 import {create} from 'react-test-renderer';
 import {shallow} from 'enzyme';
-import 'jest-styled-components';
 
 describe('Test EmptyList component', () => {
   const emptyList = create(<EmptyList />);
