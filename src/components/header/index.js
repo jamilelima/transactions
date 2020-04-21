@@ -8,12 +8,11 @@ import {
   YourBalance,
 } from './styles';
 import {format, getDay} from 'date-fns';
-import {transformDayOfWeekInString, convertForReal} from '../../utils/utils';
+import {transformDayOfWeekInString, formatNumber} from '../../utils/utils';
 
 export default function Header({amountValue}) {
   const dayDate = format(new Date(), 'dd/MM/yyyy');
   const dayOfWeek = transformDayOfWeekInString(getDay(new Date()));
-
   return (
     <Container>
       <View style={{marginRight: 50}}>
@@ -23,7 +22,7 @@ export default function Header({amountValue}) {
       <View>
         <YourBalance>Seu saldo</YourBalance>
         <TransactionValue>
-          R$ {amountValue ? convertForReal(amountValue) : 0}
+          R$ {amountValue ? formatNumber(amountValue) : 0}
         </TransactionValue>
       </View>
     </Container>
