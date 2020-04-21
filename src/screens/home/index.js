@@ -11,9 +11,8 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      transactions: {},
+      transactions: [],
       newBalance: 0,
-      loading: false,
     };
   }
 
@@ -35,6 +34,7 @@ export default class Home extends React.Component {
       this.reloadData(data);
     });
     this.calculateBalance(data);
+    console.log(data);
   }
 
   calculateBalance(transactions) {
@@ -47,6 +47,7 @@ export default class Home extends React.Component {
       }
     }
     this.setState({newBalance: total});
+    console.log(this.state);
   }
 
   render() {
