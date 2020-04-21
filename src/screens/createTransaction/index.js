@@ -9,6 +9,7 @@ import {
   ButtonText,
   ErrorText,
   FormInfo,
+  PickerContainer,
 } from './styles';
 import {Picker} from '@react-native-community/picker';
 import getRealm from '../../services/realm';
@@ -88,13 +89,19 @@ export default function CreateTransaction({navigation}) {
               value={money.value}
               ref={register({name: 'transactionValue'}, {required: true})}
               type={'money'}
-              style={{color: colors.white}}
-              placeholderTextColor={colors.white}
+              style={{
+                fontFamily: 'Nunito-Regular',
+                color: '#000',
+                backgroundColor: colors.white,
+                borderRadius: 4,
+                fontSize: 16,
+              }}
+              placeholderTextColor="#000"
               includeRawValueInChangeText={true}
               onChangeText={(value, rawText) =>
                 handleMoneyChange(value, rawText)
               }
-              placeholder={'Digite o valor da transação'}
+              placeholder={'R$0,00'}
             />
             {errors.transactionValue && (
               <ErrorText>Por favor, preencha este campo.</ErrorText>
@@ -119,18 +126,21 @@ export default function CreateTransaction({navigation}) {
 
           <InputContainer>
             <Title>Tipo de transação</Title>
-            <Picker
-              ref={register({name: 'transactionType'}, {required: true})}
-              selectedValue={values.selectedOption}
-              placeholderIconColor={colors.white}
-              style={{color: colors.white}}
-              onValueChange={handleSelectChange}>
-              <Picker.Item label="Selecione um tipo..." value="" />
-              <Picker.Item label="Entrada" value="credit" />
-              <Picker.Item label="Saída" value="debit" />
-            </Picker>
+            <PickerContainer>
+              <Picker
+                ref={register({name: 'transactionType'}, {required: true})}
+                selectedValue={values.selectedOption}
+                onValueChange={handleSelectChange}>
+                <Picker.Item
+                  label="Selecione um tipo de transação..."
+                  value=""
+                />
+                <Picker.Item label="Crédito" value="credit" />
+                <Picker.Item label="Débito" value="debit" />
+              </Picker>
+            </PickerContainer>
             {errors.transactionType && (
-              <ErrorText>Por favor, preencha este campo.</ErrorText>
+              <ErrorText>Por favor, escolha uma opção</ErrorText>
             )}
           </InputContainer>
 
@@ -142,9 +152,3 @@ export default function CreateTransaction({navigation}) {
     </Container>
   );
 }
-
-// <Input
-// ref={register({name: 'transactionValue'}, {required: true})}
-// onChangeText={(text) => setValue('transactionValue', text, true)}
-// keyboardType="numeric"
-// />
