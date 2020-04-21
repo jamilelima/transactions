@@ -61,7 +61,7 @@ export default function CreateTransaction({navigation}) {
     }
     setTimeout(() => {
       navigation.navigate('Home');
-    }, 1000);
+    }, 500);
   }
 
   const handleSelectChange = (selectedOption) => {
@@ -86,6 +86,7 @@ export default function CreateTransaction({navigation}) {
           <InputContainer>
             <Title>Valor</Title>
             <TextInputMask
+              name="teste"
               value={money.value}
               ref={register({name: 'transactionValue'}, {required: true})}
               type={'money'}
