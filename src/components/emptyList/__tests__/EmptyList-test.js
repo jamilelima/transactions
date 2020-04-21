@@ -14,7 +14,7 @@ describe('Test EmptyList component', () => {
       component.text().includes('A lista está vazia. Adicione uma transação.'),
     ).toBe(true);
   });
-  test("Test empty list text for a test that doesn't exist", () => {
+  test("Test empty list text for a text that doesn't exist", () => {
     const component = shallow(<EmptyList />);
     expect(
       component.text().includes('A lista está vazia. Adicione uma transação.'),
