@@ -10,7 +10,7 @@ describe('Test Home component', () => {
     newBalance: 0,
   };
 
-  test('should render component', () => {
+  test('should render component', async () => {
     const snapshot = create(<Home />).toJSON();
     expect(snapshot).toMatchSnapshot();
   });
@@ -19,7 +19,19 @@ describe('Test Home component', () => {
     component = shallow(<Home />);
   });
 
-  it('has default state', () => {
+  it('has default state', async () => {
     expect(component.state()).toEqual(defaultState);
+  });
+
+  it('transactions state is empty', async () => {
+    const componentInstance = component.instance();
+    componentInstance.componentDidMount();
+    expect(component.state('transactions')).toEqual([]);
+  });
+
+  it('transactions state is an array', async () => {
+    const componentInstance = component.instance();
+    componentInstance.componentDidMount();
+    expect(component.state('transactions')).not.toEqual({});
   });
 });
