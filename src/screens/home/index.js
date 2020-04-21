@@ -34,7 +34,6 @@ export default class Home extends React.Component {
       this.reloadData(data);
     });
     this.calculateBalance(data);
-    console.log(data);
   }
 
   calculateBalance(transactions) {
@@ -47,8 +46,11 @@ export default class Home extends React.Component {
       }
     }
     this.setState({newBalance: total});
-    console.log(this.state);
   }
+
+  _navigateToCreateTransaction = () => {
+    this.props.navigation.navigate('CreateTransaction');
+  };
 
   render() {
     return (
@@ -66,8 +68,7 @@ export default class Home extends React.Component {
             />
           )}
         </Container>
-        <FabButton
-          onPress={() => this.props.navigation.navigate('CreateTransaction')}>
+        <FabButton onPress={this._navigateToCreateTransaction}>
           <FabIcon>+</FabIcon>
         </FabButton>
       </Fragment>
