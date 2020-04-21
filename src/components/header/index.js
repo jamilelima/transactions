@@ -16,7 +16,7 @@ export default function Header({amountValue}) {
 
   return (
     <Container>
-      <View>
+      <View style={{marginRight: 50}}>
         <DayOfWeek>{dayOfWeek}</DayOfWeek>
         <DayDate>{dayDate}</DayDate>
       </View>
