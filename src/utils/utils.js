@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 export function transformDayOfWeekInString(dayKey) {
   const days = [
     'Domingo',
@@ -11,6 +12,36 @@ export function transformDayOfWeekInString(dayKey) {
   return days[dayKey];
 }
 
-export function convertForReal(value) {
-  return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-}
+// Credits to: https://gist.github.com/vitorfreitas/76f64327691fcc9b861a1dee46865350
+export const formatNumber = (
+  amount,
+  decimalCount = 2,
+  decimal = ',',
+  thousands = '.',
+) => {
+  try {
+    decimalCount = Math.abs(decimalCount);
+    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+    const negativeSign = amount < 0 ? '-' : '';
+
+    let i = parseInt(
+      (amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)),
+    ).toString();
+    let j = i.length > 3 ? i.length % 3 : 0;
+
+    return (
+      negativeSign +
+      (j ? i.substr(0, j) + thousands : '') +
+      i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + thousands) +
+      (decimalCount
+        ? decimal +
+          Math.abs(amount - i)
+            .toFixed(decimalCount)
+            .slice(2)
+        : '')
+    );
+  } catch (e) {
+    console.log(e);
+  }
+};
