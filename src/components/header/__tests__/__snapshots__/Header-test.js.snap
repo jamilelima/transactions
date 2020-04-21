@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Header component Match with snapashot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1B232F",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginBottom": 0,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "marginTop": 0,
+        "paddingBottom": 50,
+        "paddingLeft": 50,
+        "paddingRight": 50,
+        "paddingTop": 50,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "marginRight": 50,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FFF",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Segunda-feira
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FFF",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      20/04/2020
+    </Text>
+  </View>
+  <View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#90949c",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 12,
+            "textAlign": "justify",
+          },
+        ]
+      }
+    >
+      Seu saldo
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FAFAFA",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 22,
+            "fontWeight": "bold",
+          },
+        ]
+      }
+    >
+      R$ 
+      200.00
+    </Text>
+  </View>
+</View>
+`;
