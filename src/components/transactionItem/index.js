@@ -18,6 +18,7 @@ export default function TransactionItem({data}) {
       return <Icon name="arrow-down-right" color={colors.orange} size={24} />;
     }
   };
+
   const _setupValueStyle = () => {
     if (data.type === 'credit') {
       return (
