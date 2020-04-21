@@ -5,7 +5,7 @@ export default class TransactionSchema {
     properties: {
       id: {type: 'string', indexed: true},
       description: 'string',
-      value: 'int',
+      value: 'double',
       type: 'string',
       date: 'string',
     },
