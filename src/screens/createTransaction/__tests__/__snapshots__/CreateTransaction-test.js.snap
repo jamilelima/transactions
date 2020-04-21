@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CreateTransaction screen should render component 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#171B1E",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "space-evenly",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#FAFAFA",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "marginBottom": 0,
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 0,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Digite as informações abaixo para criar sua transação.
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 10,
+          "paddingBottom": 0,
+          "paddingLeft": 20,
+          "paddingRight": 20,
+          "paddingTop": 0,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FAFAFA",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "marginBottom": 10,
+          },
+        ]
+      }
+    >
+      Valor
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      includeRawValueInChangeText={true}
+      keyboardType="numeric"
+      name="teste"
+      onChangeText={[Function]}
+      placeholder="R$0,00"
+      placeholderTextColor="#000"
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "backgroundColor": "#FFF",
+          "borderRadius": 4,
+          "color": "#000",
+          "fontFamily": "Nunito-Regular",
+          "fontSize": 16,
+        }
+      }
+      type="money"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 10,
+          "paddingBottom": 0,
+          "paddingLeft": 20,
+          "paddingRight": 20,
+          "paddingTop": 0,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FAFAFA",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "marginBottom": 10,
+          },
+        ]
+      }
+    >
+      Descrição
+    </Text>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      placeholderTextColor="#000"
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FAFAFA",
+            "borderRadius": 4,
+            "color": "#000",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 16,
+          },
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginRight": 10,
+          "marginTop": 10,
+          "paddingBottom": 0,
+          "paddingLeft": 20,
+          "paddingRight": 20,
+          "paddingTop": 0,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FAFAFA",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "marginBottom": 10,
+          },
+        ]
+      }
+    >
+      Tipo de transação
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FFF",
+            "borderRadius": 4,
+            "fontFamily": "Nunito-Regular",
+          },
+        ]
+      }
+    >
+      <View>
+        <RNCPicker
+          items={
+            Array [
+              Object {
+                "label": "Selecione um tipo de transação...",
+                "textColor": undefined,
+                "value": "",
+              },
+              Object {
+                "label": "Crédito",
+                "textColor": undefined,
+                "value": "credit",
+              },
+              Object {
+                "label": "Débito",
+                "textColor": undefined,
+                "value": "debit",
+              },
+            ]
+          }
+          onChange={[Function]}
+          selectedIndex={0}
+          style={
+            Array [
+              Object {
+                "height": 216,
+              },
+              undefined,
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#00CC99",
+        "borderRadius": 4,
+        "justifyContent": "center",
+        "marginBottom": 30,
+        "marginLeft": 30,
+        "marginRight": 30,
+        "marginTop": 30,
+        "opacity": 1,
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#1B232F",
+            "fontFamily": "Nunito-Regular",
+            "fontSize": 16,
+          },
+        ]
+      }
+    >
+      Salvar
+    </Text>
+  </View>
+</View>
+`;
