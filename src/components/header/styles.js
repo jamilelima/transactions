@@ -23,6 +23,7 @@ export const DayDate = styled.Text`
   font-family: 'Nunito-Regular';
   font-size: 16px;
   font-weight: bold;
+  text-align: center;
   color: ${colors.white};
 `;
 
