@@ -87,7 +87,7 @@ exports[`Test Header component Match with snapashot 1`] = `
       }
     >
       R$ 
-      200.00
+      200,00
     </Text>
   </View>
 </View>
