@@ -15,6 +15,7 @@ import getRealm from '../../services/realm';
 import colors from '../../utils/colors';
 import {format} from 'date-fns';
 import Loading from '../../components/loading';
+import {TextInputMask} from 'react-native-masked-text';
 
 export default function CreateTransaction({navigation}) {
   const {register, setValue, handleSubmit, errors} = useForm();
@@ -28,6 +29,10 @@ export default function CreateTransaction({navigation}) {
     selectedOption: '',
   });
 
+  const [money, setMoney] = useState({
+    value: '',
+  });
+
   const [loading, setLoading] = useState(false);
 
   async function saveTransaction(transaction) {
@@ -37,7 +42,7 @@ export default function CreateTransaction({navigation}) {
         new Date().valueOf().toString(36) +
         Math.random().toString(36).substr(2),
       description: transaction.transactionDescription,
-      value: parseInt(transaction.transactionValue, 10),
+      value: transaction.transactionValue,
       type: transaction.transactionType,
       date: format(new Date(), 'dd/MM/yyyy'),
     };
@@ -63,6 +68,11 @@ export default function CreateTransaction({navigation}) {
     setSelect({selectedOption});
   };
 
+  const handleMoneyChange = (value, rawValue) => {
+    setValue('transactionValue', rawValue);
+    setMoney({value});
+  };
+
   return (
     <Container>
       {loading ? (
@@ -74,10 +84,17 @@ export default function CreateTransaction({navigation}) {
           </FormInfo>
           <InputContainer>
             <Title>Valor</Title>
-            <Input
+            <TextInputMask
+              value={money.value}
               ref={register({name: 'transactionValue'}, {required: true})}
-              onChangeText={(text) => setValue('transactionValue', text, true)}
-              keyboardType="numeric"
+              type={'money'}
+              style={{color: colors.white}}
+              placeholderTextColor={colors.white}
+              includeRawValueInChangeText={true}
+              onChangeText={(value, rawText) =>
+                handleMoneyChange(value, rawText)
+              }
+              placeholder={'Digite o valor da transação'}
             />
             {errors.transactionValue && (
               <ErrorText>Por favor, preencha este campo.</ErrorText>
@@ -125,3 +142,9 @@ export default function CreateTransaction({navigation}) {
     </Container>
   );
 }
+
+// <Input
+// ref={register({name: 'transactionValue'}, {required: true})}
+// onChangeText={(text) => setValue('transactionValue', text, true)}
+// keyboardType="numeric"
+// />
