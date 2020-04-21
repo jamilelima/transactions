@@ -1,6 +1,4 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import colors from '../../utils/colors';
 import {Svg} from 'react-native-svg';
 import Icons from '../../assets/Icons';
 import {Container, EmptyListText} from './styles';
