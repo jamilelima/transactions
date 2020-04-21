@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test Home component should render component 1`] = `
+exports[`Test Home screen should render component 1`] = `
 Array [
   <View
     backgroundColor="#171B1E"

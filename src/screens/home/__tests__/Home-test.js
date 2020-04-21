@@ -1,10 +1,14 @@
 import React from 'react';
 import {create} from 'react-test-renderer';
 import {shallow} from 'enzyme';
-import Home from '../../home';
+import Home from '../index';
+import EmptyList from '../../../components/emptyList';
+import {mockTransactions} from '../../../utils/mockData';
+import {formatNumber} from '../../../utils/utils';
 
-describe('Test Home component', () => {
+describe('Test Home screen', () => {
   let component;
+  let componentInstance;
   let defaultState = {
     transactions: [],
     newBalance: 0,
@@ -17,6 +21,7 @@ describe('Test Home component', () => {
 
   beforeEach(() => {
     component = shallow(<Home />);
+    componentInstance = component.instance();
   });
 
   it('has default state', async () => {
@@ -24,14 +29,23 @@ describe('Test Home component', () => {
   });
 
   it('transactions state is empty', async () => {
-    const componentInstance = component.instance();
     componentInstance.componentDidMount();
     expect(component.state('transactions')).toEqual([]);
   });
 
   it('transactions state is an array', async () => {
-    const componentInstance = component.instance();
     componentInstance.componentDidMount();
     expect(component.state('transactions')).not.toEqual({});
+  });
+
+  it('calculateBalance method and format to money', () => {
+    componentInstance.calculateBalance(mockTransactions);
+    // This 275,88 is the result of sum of values in mockTransactions
+    expect(formatNumber(component.state('newBalance'))).toEqual('275,88');
+  });
+
+  it('verify is EmptyList render when transactions list is empty', () => {
+    expect(component.state('transactions')).toEqual([]);
+    expect(component.find(EmptyList)).toHaveLength(1);
   });
 });
