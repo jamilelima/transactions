@@ -41,7 +41,7 @@ exports[`Test Header component Match with snapashot 1`] = `
         ]
       }
     >
-      Segunda-feira
+      Terça-feira
     </Text>
     <Text
       style={
@@ -56,7 +56,7 @@ exports[`Test Header component Match with snapashot 1`] = `
         ]
       }
     >
-      20/04/2020
+      21/04/2020
     </Text>
   </View>
   <View>
