@@ -8,7 +8,7 @@ import {
 import Icon from 'react-native-vector-icons/Feather';
 import {View} from 'react-native';
 import colors from '../../utils/colors';
-import {convertForReal} from '../../utils/utils';
+import {formatNumber} from '../../utils/utils';
 
 export default function TransactionItem({data}) {
   const _setupIcon = () => {
@@ -22,13 +22,13 @@ export default function TransactionItem({data}) {
     if (data.type === 'credit') {
       return (
         <TransactionValue style={{color: colors.green}}>
-          R$ {convertForReal(data.value)}
+          R$ {formatNumber(data.value)}
         </TransactionValue>
       );
     } else {
       return (
         <TransactionValue style={{color: colors.orange}}>
-          R$ {convertForReal(data.value)}
+          R$ {formatNumber(data.value)}
         </TransactionValue>
       );
     }
