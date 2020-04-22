@@ -1,7 +1,6 @@
 {
   "name": "Transactions",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -36,7 +35,6 @@
     "@babel/runtime": "^7.9.2",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.3.0",
-    "cavy": "^3.2.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-react-16-adapter-setup": "^0.1.0",
