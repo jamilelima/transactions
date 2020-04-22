@@ -68,7 +68,6 @@ exports[`Test CreateTransaction screen should render component 1`] = `
       allowFontScaling={true}
       includeRawValueInChangeText={true}
       keyboardType="numeric"
-      name="teste"
       onChangeText={[Function]}
       placeholder="R$0,00"
       placeholderTextColor="#000"
