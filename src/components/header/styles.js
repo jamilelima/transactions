@@ -6,36 +6,37 @@ export const Container = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-radius: 10px;
-  margin: 10px;
+  margin: 0;
   padding: 50px;
   background: ${colors.davy_gre};
 `;
 
 export const DayOfWeek = styled.Text`
+  font-family: 'Nunito-Regular';
   font-size: 16px;
   font-weight: bold;
   color: ${colors.white};
-  font-family: 'Nunito-Regular';
+  text-align: center;
 `;
 
 export const DayDate = styled.Text`
+  font-family: 'Nunito-Regular';
   font-size: 16px;
   font-weight: bold;
+  text-align: center;
   color: ${colors.white};
-  font-family: 'Nunito-Regular';
 `;
 
 export const YourBalance = styled.Text`
+  font-family: 'Nunito-Regular';
   font-size: 12px;
   text-align: justify;
   color: ${colors.cool_grey};
-  font-family: 'Nunito-Regular';
 `;
 
 export const TransactionValue = styled.Text`
+  font-family: 'Nunito-Regular';
   font-size: 22px;
   font-weight: bold;
-  color: ${colors.accent};
-  font-family: 'Nunito-Regular';
+  color: ${colors.white_ish};
 `;
