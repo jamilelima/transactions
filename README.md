@@ -45,7 +45,7 @@ O aplicativo foi criado com as seguintes ferramentas open source:
   * `$ git clone https://github.com/jamilelima/transactions.git`
 * Entre na pasta clonada
   * `$ cd transactions`
-* Rode oscomandos
+* Rode os comandos
   * `$ yarn install` ou `$ npm install`
   * `$ react-native run-android`
 * O app vai ser instalado no seu dispositivo ou emulador
