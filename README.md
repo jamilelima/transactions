@@ -48,7 +48,7 @@ O aplicativo foi criado com as seguintes ferramentas open source:
 * Rode os comandos
   * `$ yarn install` ou `$ npm install`
   * `$ react-native run-android`
-* O app vai ser instalado no seu dispositivo ou emulador
+* O app vai ser instalado no seu dispositivo ou no emulador
 * Ou simplesmente baixe o apk [aqui](https://drive.google.com/file/d/1WJnJjtsdmvRvlbF13OJmFplEQS1AYbx9/view?usp=sharing)
 * Aproveite :tada:
 
