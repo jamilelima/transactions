@@ -41,7 +41,7 @@ O aplicativo foi criado com as seguintes ferramentas open source:
 ## Como usar
 
 * Faça o clone do repositório
-  * `$ git clone git@github.com:jamilelima/transactions.git`
+  * `$ git clone https://github.com/jamilelima/transactions.git`
 * Entre na pasta clonada
   * `$ cd transactions`
 * Rode oscomandos
