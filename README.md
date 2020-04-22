@@ -13,6 +13,7 @@
   <a href="#demo">Demo</a> -
   <a href="#ferramentas">Ferramentas</a> -
   <a href="#como-usar">Como usar</a> -
+  <a href="#executando-os-testes">Testes</a> -
   <a href="#autora">Autora</a> -
   <a href="#licença">Licença</a>
 </p>
@@ -45,11 +46,15 @@ O aplicativo foi criado com as seguintes ferramentas open source:
 * Entre na pasta clonada
   * `$ cd transactions`
 * Rode oscomandos
-  * `$ yarn install` || `$ npm install`
+  * `$ yarn install` ou `$ npm install`
   * `$ react-native run-android`
 * O app vai ser instalado no seu dispositivo ou emulador
 * Ou simplesmente baixe o apk [aqui](https://drive.google.com/file/d/1WJnJjtsdmvRvlbF13OJmFplEQS1AYbx9/view?usp=sharing)
 * Aproveite :tada:
+
+## Executando os testes
+* Rode o comando
+  * `$ yarn run test` ou `$ npm run test`
 
 ## Autora
 
