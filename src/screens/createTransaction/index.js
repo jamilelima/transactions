@@ -38,7 +38,8 @@ export default function CreateTransaction({navigation}) {
 
   async function saveTransaction(transaction) {
     const data = {
-      // Because Realm don't provide incrementation I need to handle id creation carrefully. This prevents id repetitions.
+      // Because Realm don't provide incrementation it was needed to handle id creation carefully.
+      // This prevents id repetitions.
       id:
         new Date().valueOf().toString(36) +
         Math.random().toString(36).substr(2),
