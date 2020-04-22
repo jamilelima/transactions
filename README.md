@@ -59,4 +59,6 @@ O aplicativo foi criado com as seguintes ferramentas open source:
 
 ## Licença
 
-MIT
+MIT License
+
+Copyright (c) 2020 Jamile Lima
